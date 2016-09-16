@@ -39,7 +39,7 @@ However this caused an error:
 The reason for this error is eclipse WTP(web tools platform) checks version     info from catalina.jar; if the version info from ServerInfo.properties          doesn't match it will throw the error. But this check is actually redundant.
 
 To solve this you have to patch catalina.jar, follow the steps here:
-
+```
 (make sure tomcat is stopped before doing the steps)
 1) cd /usr/local/opt/tomcat/libexec/lib
 2) mkdir catalina
@@ -50,12 +50,14 @@ Change server.info version numbers in this file to be 8.0.0 instead of 8.5.x
 6) jar uf ../catalina.jar org/apache/catalina/util/ServerInfo.properties
 7) cd ..
 8) rm -rf catalina
-
+```
 **4. now you can see the tomcat server under Servers tab**
 
 double click on it and check
+```
 1) HTTP ports (default 8080)
 2) Under Server locations choose "Use tomcat installation" (give server path        as `/usr/local/opt/tomcat/libexec`)
+```
 
 **5. now you can right click and start the server** 
     
